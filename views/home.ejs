@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Project</title>
+</head>
+<body>
+<h1>Test Project</h1>
+<form action="/" method="POST">
+    <label for="username">Enter Username</label>
+    <input type="text" id="username" name="username">
+    <label for="email">Enter Email</label>
+    <input type="text" id="email" name="email">
+    <input type="submit" value="SEND">
+</form>
+<% if (locals.error_txt) { %>
+    <b>Произошла ошибка: <%= error_txt %></b>
+<% } %>
+
+<% if (locals.user_data) { %>
+    <div>
+        <h3>Registered users</h3>
+        <% for(var i = 0; i < user_data.length; i++) { %>
+            <li><%= user_data[i].username %>, email: <%= user_data[i].email %></li>
+        <% } %>
+    </div>
+<% } else { %>
+    <div>
+        <p>Данные отсутствуют.</p>
+    </div>
+<% } %>
+</body>
